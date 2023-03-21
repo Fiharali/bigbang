@@ -61,7 +61,7 @@ class RegisteredUserController extends Controller
             'UserName' => $request->UserName,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'PhoneNumber'=>$request->number,
+            'PhoneNumber'=>$request->PhoneNumber,
         ]);
 
           if ($request->category==="bac+2") {
