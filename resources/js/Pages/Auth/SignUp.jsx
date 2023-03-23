@@ -24,9 +24,11 @@ function SignUp() {
 
     };
 
+
     const googleAuth =()=>{
         get(route('googleAuth'))
     }
+
     return (
         <>
         <form id="sign-up-form" onSubmit={submitSignUp}>
@@ -173,6 +175,7 @@ function SignUp() {
             </div>
             <button className="control-button up">Sign Up</button>
         </form>
+
         <div>
             <button onClick={googleAuth}> gggg</button>
         </div>

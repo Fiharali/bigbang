@@ -1,6 +1,6 @@
 :root{
     --form-height:550px;
-    --form-width: 1000px;
+    --form-width: 900px;
     --left-color: #240738;
     --right-color: #c689f9;
   }
@@ -27,6 +27,7 @@
     border-radius: 10px;
     color: white;
     clip: rect(0, 385px, var(--form-height), 0);
+    padding: 10px;
   }
   
   .open-sign-up{

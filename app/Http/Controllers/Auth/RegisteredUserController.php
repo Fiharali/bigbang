@@ -53,6 +53,7 @@ class RegisteredUserController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'UserName' => 'required|string',
             'SocietName' => 'required|string',
@@ -60,6 +61,8 @@ class RegisteredUserController extends Controller
             'email' => 'required|email|unique:reserchers,email',
             'password' => 'required|min:8',
         ]);
+
+
 
         $user = User::create([
             'UserName' => $request->UserName,
