@@ -54,14 +54,13 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        $request->validate([
-            'UserName' => 'required|string',
-            'SocietName' => 'required|string',
-            'PhoneNumber' => 'required|string|digits_between:10,16',
-            'email' => 'required|email|unique:reserchers,email',
-            'password' => 'required|min:8',
-        ]);
-
+      $request->validate([
+        'UserName' => 'required|string',
+        'SocietName' => 'required|string',
+        'PhoneNumber' => 'required|string|digits_between:10,16',
+        'email' => 'required|email|unique:reserchers,email',
+        'password' => 'required|min:8',
+    ]);
 
 
         $user = User::create([

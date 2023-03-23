@@ -24,11 +24,11 @@ function SignIn() {
 
 
                     <input className="form-control" id="email" type="email" name="email" value={data.email} onChange={(e) => setData("email", e.target.value)} placeholder='email' />
-
                     <InputError message={errors.email} />
                 </div>
 
                 <div >
+
 
                     <input className="form-control mb-3"
                         id="passwordSignIn" type="password" name="password" value={data.password} onChange={(e) => setData("password", e.target.value)} placeholder='password' />

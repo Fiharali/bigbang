@@ -25,9 +25,11 @@ function SignUp() {
     };
 
 
+
     const googleAuth =()=>{
         get(route('googleAuth'))
     }
+
 
     return (
         <>
@@ -176,10 +178,12 @@ function SignUp() {
             <button className="control-button up">Sign Up</button>
         </form>
 
+
         <div>
             <button onClick={googleAuth}> gggg</button>
         </div>
         </>
+
     )
 }
 export default SignUp;
