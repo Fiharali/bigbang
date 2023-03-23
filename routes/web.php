@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BaccController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+
+use Laravel\Socialite\Facades\Socialite;
 use Inertia\Inertia;
 
 /*
@@ -49,3 +52,22 @@ Route::get('/home', function () {
 Route::get('/hhhh', function () {
     return Inertia::render('Auth/LoginSignUp');
 });
+
+
+Route::get('auth/google',[RegisteredUserController::class , 'RedirectGoogle'])->name('googleAuth');
+Route::get('auth/google/callback',[RegisteredUserController::class , 'GoogleCallBack'])->name('googleCallBack');
+
+
+
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+
+    // $user->token
+});
+
+
+

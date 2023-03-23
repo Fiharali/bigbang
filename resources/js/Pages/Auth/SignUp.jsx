@@ -3,7 +3,7 @@ import InputError from '@/Components/InputError';
 import { useForm } from '@inertiajs/react';
 
 function SignUp() {
-    const { data, setData, post, errors } = useForm({
+    const { data, setData, post,get, errors } = useForm({
         category: '',
         university: '',
         SocietName: '',
@@ -23,7 +23,12 @@ function SignUp() {
         post(route('register'));
 
     };
+
+    const googleAuth =()=>{
+        get(route('googleAuth'))
+    }
     return (
+        <>
         <form id="sign-up-form" onSubmit={submitSignUp}>
             <div >
                 <img src="./image/utilisateur.png" width="150" height="150" />
@@ -168,6 +173,10 @@ function SignUp() {
             </div>
             <button className="control-button up">Sign Up</button>
         </form>
+        <div>
+            <button onClick={googleAuth}> gggg</button>
+        </div>
+        </>
     )
 }
 export default SignUp;

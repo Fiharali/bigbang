@@ -16,7 +16,7 @@ class Bacc extends Model
         return $this->belongsTo(Resercher::class,'reserech_id');
     }
 
-    
+
     protected $fillable = [
         'UnivercityName',
         'EtablisementName',
