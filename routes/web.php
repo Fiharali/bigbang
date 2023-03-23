@@ -43,9 +43,9 @@ require __DIR__.'/auth.php';
 
 
 // Route::get('/create-bacc', [BaccController::class , 'store'])->name('create-bacc');
-Route::get('/home', function () {
-    return Inertia::render('Comps/Home');
-});
+// Route::get('/home', function () {
+//     return Inertia::render('Comps/Home');
+// });
 
 
 
@@ -54,20 +54,12 @@ Route::get('/hhhh', function () {
 });
 
 
-Route::get('auth/google',[RegisteredUserController::class , 'RedirectGoogle'])->name('googleAuth');
-Route::get('auth/google/callback',[RegisteredUserController::class , 'GoogleCallBack'])->name('googleCallBack');
+Route::get('auth/google',[RegisteredUserController::class , 'RedirectGoogle'])->name('auth.google');
+Route::get('auth/google/callback',[RegisteredUserController::class , 'GoogleCallBack'])->name('callback.google');
 
 
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
-});
 
-Route::get('/auth/callback', function () {
-    $user = Socialite::driver('github')->user();
-
-    // $user->token
-});
 
 
 

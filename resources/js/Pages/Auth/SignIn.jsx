@@ -13,6 +13,11 @@ function SignIn() {
 
         post(route('login'));
     };
+    const googleAuth = (e) => {
+        e.preventDefault();
+        get(route('auth.google'))
+
+    }
     return (
         <>
             <h1>Create Account</h1>
@@ -41,7 +46,9 @@ function SignIn() {
                     <label for="checkbox">Remember me ?</label>
                 </div>
                 <button className="control-button in btn btn-primary">Sign In</button>
+                <a   href='/auth/google' className="btn bg-green form-control" >Google</a>
             </form>
+
         </>
     )
 }
