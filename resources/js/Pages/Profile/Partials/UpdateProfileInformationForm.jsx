@@ -9,7 +9,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     const user = usePage().props.auth.user;
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
-        name: user.name,
+        UserName: user.UserName,
         email: user.email,
     });
 
@@ -31,19 +31,19 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="UserName" value="UserName" />
 
                     <TextInput
-                        id="name"
+                        id="UserName"
                         className="mt-1 block w-full"
-                        value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
+                        value={data.UserName}
+                        onChange={(e) => setData('UserName', e.target.value)}
                         required
                         isFocused
-                        autoComplete="name"
+                        autoComplete="UserName"
                     />
 
-                    <InputError className="mt-2" message={errors.name} />
+                    <InputError className="mt-2" message={errors.UserName} />
                 </div>
 
                 <div>

@@ -49,6 +49,11 @@ require __DIR__.'/auth.php';
 
 
 
+Route::get('/home', function () {
+    return Inertia::render('Auth/Comps/Home');
+});
+
+
 Route::get('/hhhh', function () {
     return Inertia::render('Auth/LoginSignUp');
 });
