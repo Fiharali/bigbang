@@ -56,13 +56,18 @@ Route::get('/home', function () {
 
 Route::get('/hhhh', function () {
     return Inertia::render('Auth/LoginSignUp');
-});
+})->name('hajuju');
 
 
 Route::get('auth/google',[RegisteredUserController::class , 'RedirectGoogle'])->name('auth.google');
 Route::get('auth/google/callback',[RegisteredUserController::class , 'GoogleCallBack'])->name('callback.google');
 
+Route::get('/CategoryGoogle', function () {
+    return Inertia::render('Auth/CategoryGoogle');
+})->name('CategoryGoogle');
 
+
+Route::post('/storecategory',[RegisteredUserController::class , 'storecategory'])->name('storecategory');
 
 
 

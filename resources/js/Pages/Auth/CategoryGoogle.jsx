@@ -1,65 +1,27 @@
-import React from "react";
+import React from 'react'
 import InputError from '@/Components/InputError';
 import { useForm } from '@inertiajs/react';
 
-function SignUp(props) {
-    const { data, setData, post, get, errors } = useForm({
+function CategoryGoogle(props) {
+
+    const { data, setData, post,  errors } = useForm({
         category: '',
         university: '',
         SocietName: '',
         etablessement: '',
         filere: '',
-        UserName: '',
-        email: '',
-        PhoneNumber: '',
-        password: '',
+
 
     });
     const submitSignUp = (e) => {
         e.preventDefault();
-
-
-
-        post(route('register'));
-
+        post(route('storecategory'));
     };
-
-
-
-    const googleAuth = (e) => {
-        e.preventDefault();
-
-        window.open("/auth/google","_blank",'height=500 , width=500')
-        get(route('auth.google'))
-
-    }
-
 
     return (
         <>
             <form id="sign-up-form" onSubmit={submitSignUp}>
-                <div >
-                    <img src="./image/utilisateur.png" width="150" height="150" />
-                </div>
 
-                <div >
-                    <input type="text" value={data.UserName} name="UserName" onChange={(e) => setData("UserName", e.target.value)} />
-                    <InputError message={errors.UserName} />
-                </div>
-
-                <div >
-                    <input type="email" placeholder='email'
-                        value={data.email} name="email" onChange={(e) => setData("email", e.target.value)} />
-                    <InputError message={errors.email} />
-
-                </div>
-
-                <div >
-                    <input type='text' placeholder='PhoneNumber' value={data.PhoneNumber} name="PhoneNumber" onChange={(e) => setData("PhoneNumber", e.target.value)} />
-                    <InputError message={errors.PhoneNumber} />
-
-
-                </div>
                 <>
 
                     <select name="category" onChange={(e) => setData("category", e.target.value)}>
@@ -170,18 +132,9 @@ function SignUp(props) {
 
                     }
                 </>
-                <div >
-                    <input type="password" placeholder='password' name="password" value={data.password} onChange={(e) => setData("password", e.target.value)} />
-                    <InputError message={errors.password} />
-                </div>
 
-                <div >
-                    <input type="checkbox" name="checkbox" id="checkbox" />
-                    <label htmlFor="checkbox">Remember me ?</label>
-                </div>
                 <button className="control-button up">Sign Up</button>
 
-                <a   href='/auth/google' className="btn bg-primary   form-control" >Google</a>
             </form>
 
 
@@ -190,4 +143,5 @@ function SignUp(props) {
 
     )
 }
-export default SignUp;
+
+export default CategoryGoogle

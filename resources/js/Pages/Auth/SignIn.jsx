@@ -42,8 +42,8 @@ function SignIn() {
                 </div>
 
                 <div >
-                    <input type="checkbox" name="checkbox" id="checkbox" className="form-control" />
-                    <label for="checkbox">Remember me ?</label>
+                    <input type="checkbox" name="checkbox" id="checkbo" className="form-control" />
+                    <label htmlFor="checkbo">Remember me ?</label>
                 </div>
                 <button className="control-button in btn btn-primary">Sign In</button>
                 <a   href='/auth/google' className="btn bg-green form-control" >Google</a>

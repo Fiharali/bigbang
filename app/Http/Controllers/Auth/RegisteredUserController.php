@@ -147,8 +147,10 @@ class RegisteredUserController extends Controller
 
         try {
             $googleUser = Socialite::driver('google')->user();
+
             $user = User::where('google_id', $googleUser->getId())->first();
-            if (!$user) {
+
+            if (! $user) {
 
                 $newUser = user::create([
                     'UserName' => $googleUser->getName(),
@@ -158,11 +160,17 @@ class RegisteredUserController extends Controller
                 ]);
 
                 Auth::login($newUser);
-                return redirect()->intended('dashboard');
+                // return redirect()->intended('dashboard');
+                $user = User::where('google_id', $googleUser->getId())->first();
+                // return redirect()->intended('home');
+                return Inertia::render('Auth/CategoryGoogle',['user'=>$user]);
+
+
 
             } else {
                 Auth::login($user);
-                return redirect()->intended('dashboard');
+                // return redirect()->intended('dashboard');
+                return redirect()->intended('home');
             }
 
 
@@ -172,5 +180,58 @@ class RegisteredUserController extends Controller
 
 
      }
+  public function storecategory( Request $request){
 
+
+    if ($request->category === "bac+2") {
+        Bacc::create([
+            'UnivercityName' => $request->university,
+            'EtablisementName' => $request->etablessement,
+            'Filere' => $request->filere,
+            'reserech_id' => auth()->user()->id ,
+        ]);
+    } elseif ($request->category === "License") {
+        License::create([
+            'UnivercityName' => $request->university,
+            'EtablisementName' => $request->etablessement,
+            'Filere' => $request->filere,
+            'reserech_id' => auth()->user()->id ,
+        ]);
+    } elseif ($request->category === "master") {
+        Master::create([
+            'UnivercityName' => $request->university,
+            'EtablisementName' => $request->etablessement,
+            'Filere' => $request->filere,
+            'reserech_id' => auth()->user()->id ,
+        ]);
+    } elseif ($request->category === "phd") {
+         Phd::create([
+            'UnivercityName' => $request->university,
+            'EtablisementName' => $request->etablessement,
+            'Filere' => $request->filere,
+            'reserech_id' => auth()->user()->id ,
+        ]);
+    } elseif ($request->category === "phd_project") {
+        Phdproject::create([
+            'UnivercityName' => $request->university,
+            'EtablisementName' => $request->etablessement,
+            'Filere' => $request->filere,
+            'reserech_id' => auth()->user()->id ,
+        ]);
+    } elseif ($request->category === "proffeseur") {
+       Proffeseur::create([
+            'UnivercityName' => $request->university,
+            'EtablisementName' => $request->etablessement,
+            'Filere' => $request->filere,
+            'reserech_id' => auth()->user()->id ,
+        ]);
+    } elseif ($request->category === "proffessionnel") {
+
+         Proffessionnel::create([
+            'SocietName' => $request->SocietName,
+            'reserech_id' => auth()->user()->id ,
+        ]);
+    }
+    return redirect(RouteServiceProvider::HOME);
+  }
 }

@@ -3,7 +3,7 @@ import "./style.css";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-function LoginSignUp() {
+function LoginSignUp(props) {
   const [isSignInOpen, setIsSignInOpen] = useState(true);
 
   const openSignUp = () => {
