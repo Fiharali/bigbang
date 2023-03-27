@@ -67,4 +67,7 @@ Route::get('auth/google/callback',[RegisteredUserController::class , 'GoogleCall
 
 
 
+// Route::get('/ali', function () {
+//     return Socialite::driver('google')->asPopup()->redirect();
 
+// });
